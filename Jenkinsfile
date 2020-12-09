@@ -1,7 +1,7 @@
 pipeline {
     agent any 
     stages {
-        stage('Compile and Clean') { 
+        stage('Compile and Clean demo') { 
             steps {
 		sh "printenv"
                 sh "mvn clean compile"
