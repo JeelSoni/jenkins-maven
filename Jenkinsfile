@@ -2,9 +2,8 @@ pipeline {
     agent any 
     stages{
        stage('Compile and Clean demo') { 
-           steps {
-                def mvnHome = tool name: 'maven-3', type: 'maven'              
-                sh "${mvnHome}/bin/mvn clean compile"
+           steps {             
+                sh "mvn clean compile"
            }
         }
         stage('Sonarqube') {
