@@ -3,8 +3,8 @@ pipeline {
     stages{
        stage('Compile and Clean demo') { 
             steps {
-
-                sh "mvn clean compile"
+                def mvnHome = tool name: 'maven-3', type: 'maven' 
+                sh "${mvnHome}/bin/mvn clean compile"
             }
         }
         stage('Sonarqube') {
