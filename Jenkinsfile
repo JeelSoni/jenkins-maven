@@ -19,7 +19,7 @@ pipeline {
                     sh "${scannerHome}/bin/sonar-scanner \ 
                     -Dsonar.projectKey=jenkins-maven \ 
                     -Dsonar.sources=. \ 
-                    -Dsonar.java.binaries=**/target/classes " 
+                    -Dsonar.java.binaries=**/target/classes" 
                 } 
                 timeout(time: 10, unit: 'MINUTES') { 
                     waitForQualityGate abortPipeline: true 
