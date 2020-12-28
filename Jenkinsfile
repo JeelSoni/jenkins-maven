@@ -22,11 +22,11 @@ pipeline {
                     echo "Steps to execute SCA"
                     sh 'wget https://binaries.sonarsource.com/Distribution/sonar-scanner-cli/sonar-scanner-cli-3.3.0.1492-linux.zip'
                     sh 'unzip sonar-scanner-cli-3.3.0.1492-linux.zip'
-    			    withSonarQubeEnv(installationName: 'sonarqube', credentialsId: 'sonar_access_token') {
+    			    withSonarQubeEnv(installationName: 'sonarqube', credentialsId: 'sonarqube_access_token') {
     				    sh 'ls -l'
     				    sh 'sonar-scanner-3.3.0.1492-linux/bin/sonar-scanner -Dsonar.projectKey=jenkins-maven -Dsonar.sources=. -Dsonar.java.binaries=.'
     	    	    }
-				    waitForQualityGate(abortPipeline: true, credentialsId: 'sonar_access_token')
+				    waitForQualityGate(abortPipeline: true, credentialsId: 'sonarqube_access_token')
 			    }
             }
         } 
