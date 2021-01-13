@@ -24,7 +24,7 @@ pipeline {
                     sh 'unzip sonar-scanner-cli-3.3.0.1492-linux.zip'
     			    withSonarQubeEnv(installationName: 'sonarqube', credentialsId: 'sonar_access_token') {
     				    sh 'ls -l'
-    				    sh 'sonar-scanner-3.3.0.1492-linux/bin/sonar-scanner -Dsonar.projectKey=jenkins-maven -Dsonar.sources=. -Dsonar.java.binaries=.'
+    				    sh 'sonar-scanner-3.3.0.1492-linux/bin/sonar-scanner -Dsonar.projectKey=demo -Dsonar.sources=. -Dsonar.java.binaries=. -Dsonar.login=50809d4b12332b3731ddb9e6a027a20e8498b9e0'
     	    	    }
 				    waitForQualityGate(abortPipeline: true, credentialsId: 'sonar_access_token')
 			    }
